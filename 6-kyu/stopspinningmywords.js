@@ -22,5 +22,5 @@ const spinWords = string => {
    }
   })
   return stringArr.join(" ")
-  } // "Hey fellow warriors", "Hey wollef sroirraw"
+  } // "Hey fellow warriors" => "Hey wollef sroirraw"
   console.log(spinWords("Hey fellow warriors"))
