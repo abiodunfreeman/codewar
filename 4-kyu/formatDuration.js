@@ -1,76 +1,83 @@
 // https://www.codewars.com/kata/52742f58faf5485cae000b9a/train/javascript
-const formatDuration = seconds => 
-{
-    if (seconds === 0) return "now";
-    let str = "";
-    let years = "";
-    let yNum = Math.floor(seconds/ 60 / 60 /24 /365);
-    if (yNum > 0) {
-        years += `${yNum} ${yNum > 1 ? "years, ": "year, "}`;
-        seconds -= yNum * 365 * 24 * 60 * 60
-        str += years;
-    }
-
-    let days = "";
-    let dNum = Math.floor(seconds/ 60 / 60 / 24);
-    if (dNum > 0) {
-        days += `${dNum} ${dNum > 1 ? "days, ": "day, "}`;
-        seconds -= dNum * 24 * 60 * 60;
-        str += days;
-    }
-
-    let hours = "";
-    let hNum = Math.floor(seconds/ 60 / 60);
-    if (hNum > 0) {
-        
-        seconds -= hNum * 60 * 60;
-      if (seconds === 0) {
-        hours += `${hNum} hour`
-      } else {
-        hours += `${hNum} ${hNum > 1 ? "hours, ": "hour, "}`;
-      }
-        str += hours;
-    }
-
-    let mins = "";
-    let mNum = Math.floor(seconds / 60);
-    if (mNum > 0) {
-        
-        seconds -= mNum * 60;
-      if (seconds === 0 ) {
-        if (yNum === 0 && dNum === 0 && hNum === 0) return `${mNum} minute${mNum === 1 ? "" : "s"}`
-        mins += `and ${mNum} ${mNum === 1 ? "minute" : "minutes"}`
-      } else if (seconds === 0 && hNum !== "") {
-        
-      } else {
-        mins += `${mNum} ${mNum > 1 ? "minutes": "minute"}`;
-      }
-        str += mins;
-    }
-    let secs = "";
-    if (seconds > 0) {
-      if (yNum === 0 && dNum === 0 && hNum === 0 && mNum === 0 && seconds === 1) return "1 second"
-        secs += seconds === 1 ? ` and ${seconds} second` : ` and ${seconds} seconds`;
-        str += secs;
-    }
-    if (yNum === 0 && dNum !== 0 && hNum !== 0 && mNum === 0 && secs !== ""){
-        return `${dNum} day${dNum === 1 ? "" : 's'}, ${hNum} hour${hNum === 1 ? "" : 's'} and ${mNum} minute${mNum === 1 ? "" : 's'}`
-      }
-    if (yNum != "" && dNum != "" && hNum != "" && mNum != "" && secs == "") {
-      return `${yNum} year${ yNum > 1 ? "s" : ""}, ${dNum} day${ dNum > 1 ? "s" : ""}, ${hNum} hour${ hNum > 1 ? "s" : ""} and ${mNum} minute${ mNum > 1 ? "s" : ""}`
-    }
-    if (secs === "" && yNum === 0){
-      if (dNum === 0 && mNum === 0) {
-        return `${hNum} hour${hNum === 1 ? "" : "s"}`
-      }
-        return `${dNum} days, ${hNum} hours and ${mNum} minutes`
-      }
-  if (yNum === 0 && secs === ""){
-    return `${dNum} day${dNum === 1 ? "" : "s"}, ${hNum} hour${hNum === 1 ? "" : "s"} and ${mNum} minute${mNum === 1 ? "" : "s"}`
+const formatDuration = (seconds) => {
+  if (seconds === 0) return "now";
+  let str = "";
+  let years = "";
+  let yNum = Math.floor(seconds / 60 / 60 / 24 / 365);
+  if (yNum > 0) {
+    years += `${yNum} ${yNum > 1 ? "years, " : "year, "}`;
+    seconds -= yNum * 365 * 24 * 60 * 60;
+    str += years;
   }
-    return str;
-}
-console.log(formatDuration(3662))
+
+  let days = "";
+  let dNum = Math.floor(seconds / 60 / 60 / 24);
+  if (dNum > 0) {
+    days += `${dNum} ${dNum > 1 ? "days, " : "day, "}`;
+    seconds -= dNum * 24 * 60 * 60;
+    str += days;
+  }
+
+  let hours = "";
+  let hNum = Math.floor(seconds / 60 / 60);
+  if (hNum > 0) {
+    seconds -= hNum * 60 * 60;
+    if (seconds === 0) {
+      hours += `${hNum} hour`;
+    } else {
+      hours += `${hNum} ${hNum > 1 ? "hours, " : "hour, "}`;
+    }
+    str += hours;
+  }
+
+  let mins = "";
+  let mNum = Math.floor(seconds / 60);
+  if (mNum > 0) {
+    seconds -= mNum * 60;
+    if (seconds === 0) {
+      if (yNum === 0 && dNum === 0 && hNum === 0)
+        return `${mNum} minute${mNum === 1 ? "" : "s"}`;
+      mins += `and ${mNum} ${mNum === 1 ? "minute" : "minutes"}`;
+    } else if (seconds === 0 && hNum !== "") {
+    } else {
+      mins += `${mNum} ${mNum > 1 ? "minutes" : "minute"}`;
+    }
+    str += mins;
+  }
+  let secs = "";
+  if (seconds > 0) {
+    if (yNum === 0 && dNum === 0 && hNum === 0 && mNum === 0 && seconds === 1)
+      return "1 second";
+    secs +=
+      seconds === 1 ? ` and ${seconds} second` : ` and ${seconds} seconds`;
+    str += secs;
+  }
+  if (yNum === 0 && dNum !== 0 && hNum !== 0 && mNum === 0 && secs !== "") {
+    return `${dNum} day${dNum === 1 ? "" : "s"}, ${hNum} hour${
+      hNum === 1 ? "" : "s"
+    } and ${mNum} minute${mNum === 1 ? "" : "s"}`;
+  }
+  if (yNum != "" && dNum != "" && hNum != "" && mNum != "" && secs == "") {
+    return `${yNum} year${yNum > 1 ? "s" : ""}, ${dNum} day${
+      dNum > 1 ? "s" : ""
+    }, ${hNum} hour${hNum > 1 ? "s" : ""} and ${mNum} minute${
+      mNum > 1 ? "s" : ""
+    }`;
+  }
+  if (secs === "" && yNum === 0) {
+    if (dNum === 0 && mNum === 0) {
+      return `${hNum} hour${hNum === 1 ? "" : "s"}`;
+    }
+    return `${dNum} days, ${hNum} hours and ${mNum} minutes`;
+  }
+  if (yNum === 0 && secs === "") {
+    return `${dNum} day${dNum === 1 ? "" : "s"}, ${hNum} hour${
+      hNum === 1 ? "" : "s"
+    } and ${mNum} minute${mNum === 1 ? "" : "s"}`;
+  }
+  return str;
+};
+console.log(formatDuration(3662));
 /* 
 Your task in order to complete this Kata is to write a function which formats a 
 duration, given as a number of seconds, in a human-friendly way.

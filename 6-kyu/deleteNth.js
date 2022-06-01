@@ -1,22 +1,21 @@
 // https://www.codewars.com/kata/554ca54ffa7d91b236000023/train/javascript
 const deleteNth = (arr, n) => {
-    const uniqArr = Array.from(new Set(arr)).sort();
+  const uniqArr = Array.from(new Set(arr)).sort();
 
-    uniqArr.forEach(value => {
-        const valArr = arr.filter(val => value === val);
-        const diff = valArr.length - n;
-        if (diff) {
-            for (let i = 0 ; i < diff; i++)
-            {
-                const removeThisVal = arr.lastIndexOf(value);
-                arr.splice(removeThisVal, 1);
-            }
-        }
-    })
-    return arr;
-}
+  uniqArr.forEach((value) => {
+    const valArr = arr.filter((val) => value === val);
+    const diff = valArr.length - n;
+    if (diff) {
+      for (let i = 0; i < diff; i++) {
+        const removeThisVal = arr.lastIndexOf(value);
+        arr.splice(removeThisVal, 1);
+      }
+    }
+  });
+  return arr;
+};
 
-console.log(deleteNth([1,2,3,1,2,1,2,3], 2)); // => 1,2,3,1,2,3
+console.log(deleteNth([1, 2, 3, 1, 2, 1, 2, 3], 2)); // => 1,2,3,1,2,3
 /* 
 Enough is enough!
     Alice and Bob were on a holiday. Both of them took many pictures of the places they've been, 
