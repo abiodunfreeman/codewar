@@ -1,0 +1,16 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+header h1 {
+  color: blue;
+}
+
+/*# sourceMappingURL=style.css.map */

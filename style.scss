@@ -1,0 +1,13 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+header {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  h1 {
+    color: blue;
+  }
+}
