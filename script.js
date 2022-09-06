@@ -1,23 +1,23 @@
-// https://www.codewars.com/kata/51f2d1cafc9c0f745c00037d/train/javascript
-const solution = (str, ending) => {
-    let find = ending.split('');
-    const strArr = str.split('');
-    const diff = strArr.length - find.length;
-    strArr.splice(0, diff);
-    console.log(strArr);
-    for (let i = 0; i < find.length; i++) {
-        if (find[i] !== strArr[i])
-            return false;
-    }
-    return true;
-};
-console.log(solution('abc', 'bc')); // => true
+// https://www.codewars.com/kata/5727bb0fe81185ae62000ae3
+function cleanString(s) {
+  //filters through the string and if the letter === "#" delete the character one position before it and get rid of the hash
+  const stringArray = s.split('');
+  const stringLength = stringArray.length;
+
+  console.log(stringArray.includes('#'));
+
+  console.log(stringArray);
+  return s;
+}
+console.log(cleanString('abc#d##c'));
 /*
-  Complete the solution so that it returns true
-   if the first argument(string) passed in ends with the 2nd argument (also a string).
-  
-  Examples:
-  
-  solution('abc', 'bc') // returns true
-  solution('abc', 'd') // returns false
-  */
+Assume "#" is like a backspace in string. This means that string "a#bc#d" actually is "bd"
+
+Your task is to process a string with "#" symbols.
+
+Examples
+"abc#d##c"      ==>  "ac"
+"abc##d######"  ==>  ""
+"#######"       ==>  ""
+""              ==>  ""
+*/
