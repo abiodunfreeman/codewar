@@ -15,7 +15,7 @@ def high_and_low(numbers):
         if num < lowest_number: 
             lowest_number = num
  
-    numbers = str(largest_number) + " " + str(lowest_number)
+    numbers = f"{largest_number} {lowest_number}"
     return numbers
 
 print(high_and_low("1 3 48 30 -4 200 4893 20349 -20"))
